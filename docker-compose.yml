@@ -15,7 +15,7 @@ services:
     image: mariadb:10.2
     restart: always
     volumes:
-    - ./db:/var/lib/mysql
+    - /srv/mariadb/db:/var/lib/mysql
 
 # Panel Cache
 # This service is required for the panel to function.
@@ -41,10 +41,9 @@ services:
     image: ccarney16/pterodactyl-panel:v0.7.11
     restart: always
     volumes:
-    - ./data:/data
+    - /srv/panel/data:/data
     ports:
     - 80:80
-    - 443:443
 
 ##
 # Pterodactyl Daemon
